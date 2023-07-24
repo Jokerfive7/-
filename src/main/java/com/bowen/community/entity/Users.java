@@ -2,8 +2,8 @@ package com.bowen.community.entity;
 
 import java.util.Date;
 
-public class Recipients {
-    private int id;
+public class Users {
+    private int userid;
     private String username;
     private String password;
     private String salt;
@@ -15,11 +15,11 @@ public class Recipients {
     private Date createTime;
 
     public int getId() {
-        return id;
+        return userid;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.userid = id;
     }
 
     public String getUsername() {
@@ -96,8 +96,8 @@ public class Recipients {
 
     @Override
     public String toString() {
-        return "Recipients{" +
-                "id=" + id +
+        return "Users{" +
+                "userid=" + userid +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +

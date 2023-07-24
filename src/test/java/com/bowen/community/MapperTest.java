@@ -1,7 +1,7 @@
 package com.bowen.community;
 
 import com.bowen.community.dao.UserMapper;
-import com.bowen.community.entity.Recipients;
+import com.bowen.community.entity.Users;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,41 +16,57 @@ public class MapperTest {
     @Autowired
     private UserMapper userMapper;
 
+
     @Test
     public void testSelectUser(){
-        Recipients recipients = userMapper.selectById(4396);
-        System.out.println(recipients);
+        Users user = userMapper.selectById(43961);
+        System.out.println(user);
 
-        recipients = userMapper.selectByName("Jackeylove");
-        System.out.println(recipients);
+        user = userMapper.selectByName("Jackeylove1");
+        System.out.println(user);
 
-        recipients = userMapper.selectByEmail("546782121@qq.com");
-        System.out.println(recipients);
+        user = userMapper.selectByEmail("546782121@gmail.com");
+        System.out.println(user);
 
     }
 
     @Test
     public void testInsertUser(){
-        Recipients recipients = new Recipients();
-        recipients.setId(2200);
-        recipients.setActivationCode("TYU9");
-        recipients.setCreateTime(new Date());
-        recipients.setEmail("79463154@qq.com");
-        recipients.setPassword("456789");
-        recipients.setSalt("QWERT");
-        recipients.setStatus(1);
-        recipients.setType(2);
-        recipients.setHeaderUrl("http://localhost:8080/");
-        recipients.setUsername("xiaohu");
-        int row = userMapper.insertRecipients(recipients);
+        Users user = new Users();
+        user.setId(2200);
+        user.setActivationCode("TYU9");
+        user.setCreateTime(new Date());
+        user.setEmail("79463154@gmail.com");
+        user.setPassword("456789");
+        user.setSalt("QWERT");
+        user.setStatus(1);
+        user.setType(2);
+        user.setHeaderUrl("http:");
+        user.setUsername("xiaohu");
+        int row = userMapper.insertUsers(user);
+        System.out.println(row);
 
     }
 
     @Test
     public void testUpdateUser(){
-        userMapper.updateHeader(4396,"xxx");
-        userMapper.updatePassword(4399,"GBW");
-        userMapper.updateStatus(5438, 0);
+        userMapper.updateHeader(43961,"xxx");
+        userMapper.updatePassword(43961,"GBW");
+        userMapper.updateStatus(43961, 1);
 
+        System.out.println(userMapper.selectById(43961));
     }
+//
+//    @Autowired
+//    private DiscussPostMapper discussPostMapper;
+//    @Test
+//    public void testSelectPost(){
+//        List<DiscussPost> list = discussPostMapper.selectDiscussPost(0,0,10);
+//        for (DiscussPost discussPosts: list){
+//            System.out.println(discussPosts);
+//        }
+//
+//        System.out.println(discussPostMapper.selectDiscussRows(0));
+//
+//    }
 }

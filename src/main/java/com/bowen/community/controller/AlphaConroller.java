@@ -16,6 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Controller
+
+//类路径可以省略
 @RequestMapping("/alpha")
 public class AlphaConroller {
     //这些注解用于帮助浏览器获取路径
